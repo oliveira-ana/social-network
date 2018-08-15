@@ -2,45 +2,68 @@ var database = firebase.database();
 var USER_ID = window.location.search.match(/\?id=(.*)/)[1];
 
 $(document).ready(function() {
-  getTasksFromDB();
-  $(".add-tasks").click(addTasksClick);
+  getPostsFromDB();
+  $(".add-posts").click(addPostsClick);
 });
 
-function addTasksClick(event) {
+function addPostsClick(event) {
   event.preventDefault();
 
-  var newTask = $(".tasks-input").val();
-  var taskFromDB = addTaskToDB(newTask);
+  var newPost = $(".posts-input").val();
+  var visualization = $("#visualization option:selected").val(); //
+  var postFromDB = addPostToDB(newPost);
 
-  createListItem(newTask, taskFromDB.key)
+  createListItem(newPost, postFromDB.key)
 }
 
-function addTaskToDB(text) {
-  return database.ref("tasks/" + USER_ID).push({
+function addPostToDB(text, visualization) {
+  return database.ref("posts/" + USER_ID).push({
     text: text
   });
 }
 
-function getTasksFromDB() {
-  database.ref("tasks/" + USER_ID).once('value')
-    .then(function(snapshot) {
-      snapshot.forEach(function(childSnapshot) {
-        var childKey = childSnapshot.key;
-        var childData = childSnapshot.val();
-        createListItem(childData.text, childKey)
-      });
+function getPostsFromDB() {
+  database.ref("posts/" + USER_ID).once('value')
+  .then(function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var childKey = childSnapshot.key;
+      var childData = childSnapshot.val();
+      createListItem(childData.text, childKey)
     });
+  });
 }
 
 function createListItem(text, key) {
-  $(".tasks-list").append(`
+  $(".posts-list").append(`
     <li>
-      <input type="checkbox" data-task-id=${key} />
-      <span>${text}</span>
+    <input type="checkbox" data-post-id=${key} />
+    <span>${text}</span>
     </li>`);
 
-  $(`input[data-task-id="${key}"]`).click(function() {
-    database.ref("tasks/" + USER_ID + "/" + key).remove();
-    $(this).parent().remove();
-  });
-}
+    $(`input[data-post-id="${key}"]`).click(function() {
+      database.ref("posts/" + USER_ID + "/" + key).remove();
+      $(this).parent().remove();
+    });
+  }
+
+  // Edição de posts
+  // function updateTasks() {
+  //
+  // }
+
+  // Upload de imagens
+  // const ref = firebase.storage().ref();
+  // const file = document.querySelector('.upload-image').files[0]
+  // const name = (+new Date()) + '-' + file.name;
+  // const metadata = {
+  //   contentType: file.type
+  // };
+  //
+  // const task = ref.child(name).put(file, metadata);
+  // task
+  //   .then(snapshot => snapshot.ref.getDownloadURL())
+  //   .then((url) => {
+  //     console.log(url);
+  //     document.querySelector('#someImageTagID').src = url;
+  //   })
+  //   .catch(console.error);

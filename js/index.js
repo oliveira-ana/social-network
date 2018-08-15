@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  $('.splash').delay('2500').slideUp('slow');
-  $('.home').delay('2500').fadeIn('slow');
+  $('.splash').delay('3000').slideUp('slow');
+  $('.home').delay('3000').fadeIn('slow');
 
   $(".sign-up-button").click(signUpClick);
   $(".sign-in-button").click(signInClick);
@@ -18,13 +18,13 @@ function signUpClick(event) {
 
 function createUser(name, email, password) {
   firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(function(response) {
-      var userId = response.user.uid;
-      redirectToFeed(userId);
-    })
-    .catch(function(error) {
-      handleError(error);
-    });
+  .then(function(response) {
+    var userId = response.user.uid;
+    redirectToFeed(userId);
+  })
+  .catch(function(error) {
+    handleError(error);
+  });
 }
 
 function signInClick(event) {
@@ -38,13 +38,13 @@ function signInClick(event) {
 
 function signInUser(email, password) {
   firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(function(response) {
-      var userId = response.user.uid;
-      redirectToFeed(userId);
-    })
-    .catch(function(error) {
-      handleError(error)
-    });
+  .then(function(response) {
+    var userId = response.user.uid;
+    redirectToFeed(userId);
+  })
+  .catch(function(error) {
+    handleError(error)
+  });
 }
 
 function handleError(error) {
