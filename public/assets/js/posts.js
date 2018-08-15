@@ -66,6 +66,7 @@ function createPost(text, key) {
 }
 
 function createUsers(name, key) {
+  console.log(name, key);
   if (key !== USER_ID) {
     $(".users-list").append(`
       <li>
@@ -73,12 +74,30 @@ function createUsers(name, key) {
         <button data-user-id="${key}">seguir</button>
       </li>
     `);
+    $(`button[data-user-id=${key}]`).click(function () {
+      alert("Agora você me segue!");
+      if(!$(this).disabled) {
+        $(this).prop('disabled', true);
+      }
+      database.ref('friendship/' + USER_ID).push({
+        friendId: key
+      });
+      database.ref('posts/' + key).once('value').then(function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+          var childKey = childSnapshot.key;
+          var childData = childSnapshot.val();
+          createPost(childData.text, childKey);
+        });
+      });
+    });
   }
 
-  $(`button[data-user-id=${key}]`).click(function () {
-    database.ref('friendship/' + USER_ID).push({
-      friendId: key
-    });
-  })
-
-}
+  //   function createPostFriend(text, key) {
+  //     $(".posts-list-friends").append(`
+  //       <li>
+  //         <span data-text-id="${key}" >${text}</span>
+  //
+  //       </li>
+  //     `);
+  //
+  }
