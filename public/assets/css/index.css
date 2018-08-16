@@ -1,13 +1,8 @@
-/* #1f3b47; escura
-#bed6d0; clara
- */
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Bebas Neue", arial;
-  /* background-color: #1f3b47; */
   background-color: white;
 }
 
@@ -50,4 +45,3 @@ input {
   border: none;
   cursor: pointer;
 }
-
