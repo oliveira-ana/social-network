@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,27 +13,24 @@
   <script src="assets/js/firebase-config.js"></script>
   <title>Pixel Tour - Feed</title>
 </head>
-
 <body>
-
-  <!-- <div class="row"> -->
     <div class="col-md-12 d-flex justify-content-end">
       <a class="icon-out m-5" href="index.html">
         <i class="fas fa-sign-out-alt fa-3x"></i>
       </a>
     </div>
-
     <div class="col-md-12 d-flex justify-content-center name">
-      <h1 class="user-name text-center"></h1>
+      <img src="assets\images\logo-0.png" width="220" height="180" class="logo">  
     </div>
-
+    <div class="col-md-12 d-flex justify-content-center name">
+      <h1 class="user-name" "text-center"></h1>
+    </div>
     <div class="col-md-12 d-flex justify-content-center timeline">
       <form class="timeline-post">
         <textarea class="post-input" placeholder="O que deseja dizer?" type="text"></textarea>
       </form>
       <button class="send-button">Enviar</button>
     </div>
-
     <div class="post-list-global">
       <div class="my-posts">
         <h3 class="text-center">Meus posts</h3>
@@ -47,14 +43,11 @@
       <div class="posts-friends">
         <h3 class="text-center">O que meus amigos estão dizendo</h3>
         <div class="posts-list-friends"></div>
+        <div class='users-list-friend'></div>
       </div>
     </div>
-  <!-- </div> -->
-
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <script src="assets/js/posts.js"></script>
-
 </body>
-
 </html>

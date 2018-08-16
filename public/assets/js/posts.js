@@ -42,8 +42,8 @@ $(document).ready(function () {
 
   function createPostFriend(text, key) {
     $(".posts-list-friends").append(`
-      <span class="text-content" data-text-id="${key}" >${text}></span>
-      `);
+      <p class="text-content" data-text-id="${key}">${text}</p>
+      `)
   }
 
   function createPost(text, key) {
@@ -68,16 +68,14 @@ $(document).ready(function () {
       })
 
     });
-
   }
-
   function createUsers(name, key) {
     // console.log(name, key);
     if (key !== USER_ID) {
       $(".users-list").append(`
           <div>
           <span>${name}</span>
-          <button class="follow" data-user-id="${key}">Seguir</button>
+          <button class="follow" data-user-id="${key}" >Seguir</button>
           </div>
           `);
       $(`button[data-user-id=${key}]`).click(function () {
@@ -88,11 +86,21 @@ $(document).ready(function () {
         database.ref('friendship/' + USER_ID).push({
           friendId: key
         });
+     
         database.ref('posts/' + key).once('value').then(function (snapshot) {
+        
           snapshot.forEach(function (childSnapshot) {
             var childKey = childSnapshot.key;
             var childData = childSnapshot.val();
-            createPostFriend(childData.text, childKey);
+          
+               $(".users-list-friend").append(`
+        <div>
+        <span>${name}</span>
+        </div>
+        
+        `);
+        createPostFriend(childData.text, childKey);
+
           });
         });
       });
