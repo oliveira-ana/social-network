@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,28 +7,24 @@
   <link rel="stylesheet" href="assets/css/posts.css">
   <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
   <script src="assets/js/firebase-config.js"></script>
   <title>Pixel Tour - Feed</title>
 </head>
-
 <body>
-
   <h1 class="user-name"></h1>
-  <form>
-    <input class="post-input" type="text" />
+  <a class='back-index' href='index.html'>Sair</a>
+  <form class='timeline-post'>
+    <textarea class="post-input" type="text" ></textarea>
     <button class="send-button">Enviar</button>
   </form>
-  <ul class="posts-list"></ul>
-  <ul class="users-list"></ul>
-
-  <ul class="posts-list-friends"></ul>
-
-
-
-
+  <section class='post-list-global'>
+    <div class="posts-list"></div>
+    <div class="users-list"></div>
+    <div class="posts-list-friends"></div>
+  </section>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <script src="assets/js/posts.js"></script>
 </body>
-
 </html>

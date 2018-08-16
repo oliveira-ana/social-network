@@ -42,11 +42,11 @@ $(document).ready(function () {
 
   function createPost(text, key) {
     $(".posts-list").append(`
-      <li>
+      <div>
       <span data-text-id="${key}" >${text}</span>
       <button data-edit-id="${key}" >Editar</button>
       <button data-delete-id="${key}" >Excluir</button>
-      </li>
+      </div>
       `);
 
     $(`button[data-delete-id=${key}]`).click(function () {
@@ -69,10 +69,10 @@ $(document).ready(function () {
     console.log(name, key);
     if (key !== USER_ID) {
       $(".users-list").append(`
-          <li>
+          <div>
           <span>${name}</span>
           <button data-user-id="${key}">seguir</button>
-          </li>
+          </div>
           `);
       $(`button[data-user-id=${key}]`).click(function () {
         alert("Agora você me segue!");
@@ -86,7 +86,7 @@ $(document).ready(function () {
           snapshot.forEach(function (childSnapshot) {
             var childKey = childSnapshot.key;
             var childData = childSnapshot.val();
-            createPost(childData.text, childKey);
+            createPostfriend(childData.text, childKey);
           });
         });
       });

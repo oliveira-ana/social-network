@@ -6,5 +6,34 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Bebas Neue", arial;
+  font-family: 'Do Hyeon', sans-serif;
+}
+.send-button,button , .sign-up-button { 
+  padding: 0.5em;
+  background-color: #bed6d0;
+  border-radius: 0.3em;
+  color: #1f3b47;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+h1{
+  font-family: 'Do Hyeon', sans-serif;
+  color:#1f3b47;
+  text-align: center
+
+}
+.back-index{
+  font-size: 30px;
+  text-align: left
+}
+.timeline-post{
+  text-align: center;
+
+}
+.post-list-global{
+  text-align-last: center
+}
+textarea{
+  border-radius:  10px;
 }
