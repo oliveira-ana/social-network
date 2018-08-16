@@ -40,13 +40,19 @@ $(document).ready(function () {
 
   })
 
+  function createPostFriend(text, key) {
+    $(".posts-list-friends").append(`
+      <span class="text-content" data-text-id="${key}" >${text}></span>
+      `);
+  }
+
   function createPost(text, key) {
     $(".posts-list").append(`
       <div>
-        <button data-edit-id="${key}" >Editar</button>
-        <button data-delete-id="${key}" >Excluir</button>
+        <button class="edit" data-edit-id="${key}" >Editar</button>
+        <button class="delete" data-delete-id="${key}" >Excluir</button>
       </div>
-      <span class='text-content' data-text-id="${key}" >${text}</span>
+      <span class="text-content" data-text-id="${key}" >${text}</span>
       `);
 
     $(`button[data-delete-id=${key}]`).click(function () {
@@ -66,12 +72,12 @@ $(document).ready(function () {
   }
 
   function createUsers(name, key) {
-    console.log(name, key);
+    // console.log(name, key);
     if (key !== USER_ID) {
       $(".users-list").append(`
           <div>
           <span>${name}</span>
-          <button data-user-id="${key}">seguir</button>
+          <button class="follow" data-user-id="${key}">Seguir</button>
           </div>
           `);
       $(`button[data-user-id=${key}]`).click(function () {
@@ -86,7 +92,7 @@ $(document).ready(function () {
           snapshot.forEach(function (childSnapshot) {
             var childKey = childSnapshot.key;
             var childData = childSnapshot.val();
-            createPost(childData.text, childKey);
+            createPostFriend(childData.text, childKey);
           });
         });
       });

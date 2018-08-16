@@ -7,7 +7,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Bebas Neue", arial;
-  background-color: #bed6d0;
+  /* background-color: #1f3b47; */
+  background-color: white;
 }
 
 .splash {
@@ -34,13 +35,13 @@ form h4 {
 }
 
 input {
-  width: 60%;
+  width: 45%;
   height: 2em;
   outline: none;
   border-radius: 0.3em;
 }
 
-.home, button, .sign-in-button, .sign-up-button {
+.sign-in-button, .sign-up-button {
   padding: 0.6em;
   background-color: #1f3b47;
   border-radius: 0.3em;

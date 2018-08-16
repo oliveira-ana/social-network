@@ -8,7 +8,12 @@
   box-sizing: border-box;
   font-family: 'Do Hyeon', sans-serif;
 }
-.send-button,button , .sign-up-button { 
+
+.icon-out {
+  color: #1f3b47;
+}
+
+.send-button, .follow, .delete, .edit { 
   padding: 0.5em;
   background-color: #bed6d0;
   border-radius: 0.3em;
@@ -17,29 +22,30 @@
   border: none;
   cursor: pointer;
 }
-h1{
-  font-family: 'Do Hyeon', sans-serif;
+
+.send-button {
+  margin: 10px;
+}
+
+.name, .my-posts, .friends, .posts-friends {
+  padding: 5vh;
+}
+
+h1 {
   color:#1f3b47;
-  text-align: center
+}
 
+textarea {
+  border-radius: 10px;
+  width: 35vh;
+  height: 10vh;
 }
-.back-index{
-  font-size: 30px;
-  text-align: left
-}
-.timeline-post{
-  text-align: center;
 
+.text-content {
+  font-size: 1em;
 }
-.text-content{
-  font-size: 20px;
-  height: 100px;
-  width: 100px;
-}
-.post-list-global{
-  text-align-last: center;
-  
-}
-textarea{
-  border-radius:  10px;
+
+.post-list-global {
+  width: 100%;
+  text-align-last: center; 
 }
