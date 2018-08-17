@@ -49,10 +49,12 @@ $(document).ready(function () {
   function createPost(text, key) {
     $(".posts-list").append(`
       <div>
-        <button class="edit" data-edit-id="${key}" >Editar</button>
-        <button class="delete" data-delete-id="${key}" >Excluir</button>
-      </div>
       <span class="text-content" data-text-id="${key}" >${text}</span>
+
+      </div>
+      <button class="edit" data-edit-id="${key}" >Editar</button>
+      <button class="delete" data-delete-id="${key}" >Excluir</button>
+
       `);
 
     $(`button[data-delete-id=${key}]`).click(function () {
